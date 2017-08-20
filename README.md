@@ -53,14 +53,6 @@ var resultData = update(initialData, '$replace', [6, [7, 8]])
 // resultData = [6, [7, 8]]
 ```
 
-### $replace
-讲原始数据用目标数据替换
-```javascript
-var initialData = [1, 2, 3, [4, 5]]
-var resultData = update(initialData, '$replace', [6, [7, 8]])
-// resultData = [6, [7, 8]]
-```
-
 ### $splice
 类似数组的splice，区别在于传参方式
 ```javascript
@@ -107,7 +99,7 @@ var resultData = update(initialData, '$objmap', {a: function(item){return item *
 对象深层次合并
 ```javascript
 var initialData = {a: 1, b: 2, c: {d: 5, e: [4, 3]}}
-var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}})
+var resultData = update(initialData, '$deepmerge', {a: 7, c: {d: 'test', e: [6]}})
 // resultData = { a: 7, b: 2, c: { d: 'test', e: [ 6 ] } }
 ```
 
