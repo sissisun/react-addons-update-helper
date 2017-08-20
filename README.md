@@ -69,12 +69,12 @@ var resultData = update(initialData, '$splce', [1, 1, 6, 7])
 // 数组的第一个元素代表操作的位置，第二个代表需要删除的个数，再往后代表需要插入的元素
 // resultData = [1, 6, 7, 3, [4, 5]]
 ```
-objmap
+
 ### $deepmap
 对数组的每个元素应用回调函数（深层次）, 如果子元素不是数组，则不做任何处理
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
-var resultData = update(initialData, '$deepmap', function(item){return item * 2 }）
+var resultData = update(initialData, '$deepmap', function(item){return item * 2 })
 // 数组的第一个元素代表操作的位置，第二个代表需要删除的个数，再往后代表需要插入的元素
 // resultData = [2, 4, 6, [8, 10], {a: 2}]
 ```
@@ -83,7 +83,7 @@ var resultData = update(initialData, '$deepmap', function(item){return item * 2 
 交换数组的元素
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
-var resultData = update(initialData, '$exchange', [2, 4]）
+var resultData = update(initialData, '$exchange', [2, 4])
 // resultData = [1, 2, {a: 2}, [4, 5], 3]
 ```
 
@@ -91,7 +91,7 @@ var resultData = update(initialData, '$exchange', [2, 4]）
 将数组给定位置的元素移动到给定位置
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
-var resultData = update(initialData, '$move', [3, 0]）
+var resultData = update(initialData, '$move', [3, 0])
 // resultData = [ [ 4, 5 ], 1, 2, 3, { a: 2 } ]
 ```
 
@@ -99,7 +99,7 @@ var resultData = update(initialData, '$move', [3, 0]）
 对给出的目标对象的属性应用对应的回调方法
 ```javascript
 var initialData = {a: 1, b: 2}
-var resultData = update(initialData, '$objmap', {a: function(item){return item * 2 }}）
+var resultData = update(initialData, '$objmap', {a: function(item){return item * 2 }})
 // resultData = {a: 2, b: 2}
 ```
 
@@ -107,7 +107,7 @@ var resultData = update(initialData, '$objmap', {a: function(item){return item *
 对象深层次合并
 ```javascript
 var initialData = {a: 1, b: 2, c: {d: 5, e: [4, 3]}}
-var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}}）
+var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}})
 // resultData = { a: 7, b: 2, c: { d: 'test', e: [ 6 ] } }
 ```
 
@@ -115,6 +115,6 @@ var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}}�
 数组、对象通用的对每个元素应用回调函数，不做任何判断，浅层次
 ```javascript
 var initialData = {a: 1, b: 2, c: {d: 5, e: [4, 3]}}
-var resultData = update(initialData, '$puremap', function(item){return item * 2}）
+var resultData = update(initialData, '$puremap', function(item){return item * 2})
 // resultData = { a: 2, b: 4, c: NaN }
 ```
