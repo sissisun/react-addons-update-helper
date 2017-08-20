@@ -1,7 +1,7 @@
 # react-addons-update-helper
-> 在数据比较复杂的react项目中，state以及props一般是较为复杂的数组或者对象之类的引用类型数据，而我们更新状态时为了不破坏react更新状态的机制（this.setState），一般是不直接修改状态的值。这个插件主要就是为了以上问题，并且提供了一些操作数组和对象的便捷方法。
+> 在数据比较复杂的react项目中, state以及props一般是较为复杂的数组或者对象之类的引用类型数据，而我们更新状态时为了不破坏react更新状态的机制（this.setState），一般是不直接修改状态的值。这个插件主要就是为了以上问题，并且提供了一些操作数组和对象的便捷方法。
 
-## 引入方法
+## 引入方式
 ```javascript
 import update from react-addons-update-helper
 // 或者
@@ -30,7 +30,7 @@ var resultData = update(initialData, '$copy')
 ```
 
 ### $push
-**在数组的尾部插入一个或者多个元素**
+在数组的尾部插入一个或者多个元素
 ```javascript
 var initialData = [1, 2, 3, [4, 5]]
 var resultData = update(initialData, '$push', [6, [7, 8]])
@@ -38,7 +38,7 @@ var resultData = update(initialData, '$push', [6, [7, 8]])
 ```
 
 ### $unshift
-**在数组的头部插入一个或者多个元素**
+在数组的头部插入一个或者多个元素
 ```javascript
 var initialData = [1, 2, 3, [4, 5]]
 var resultData = update(initialData, '$unshift', [6, [7, 8]])
@@ -46,7 +46,7 @@ var resultData = update(initialData, '$unshift', [6, [7, 8]])
 ```
 
 ### $replace
-**讲原始数据用目标数据替换**
+讲原始数据用目标数据替换
 ```javascript
 var initialData = [1, 2, 3, [4, 5]]
 var resultData = update(initialData, '$replace', [6, [7, 8]])
@@ -54,7 +54,7 @@ var resultData = update(initialData, '$replace', [6, [7, 8]])
 ```
 
 ### $replace
-**讲原始数据用目标数据替换**
+讲原始数据用目标数据替换
 ```javascript
 var initialData = [1, 2, 3, [4, 5]]
 var resultData = update(initialData, '$replace', [6, [7, 8]])
@@ -62,7 +62,7 @@ var resultData = update(initialData, '$replace', [6, [7, 8]])
 ```
 
 ### $splice
-**类似数组的splice，区别在于传参方式**
+类似数组的splice，区别在于传参方式
 ```javascript
 var initialData = [1, 2, 3, [4, 5]]
 var resultData = update(initialData, '$splce', [1, 1, 6, 7])
@@ -71,7 +71,7 @@ var resultData = update(initialData, '$splce', [1, 1, 6, 7])
 ```
 objmap
 ### $deepmap
-**对数组的每个元素应用回调函数（深层次）, 如果子元素不是数组，则不做任何处理**
+对数组的每个元素应用回调函数（深层次）, 如果子元素不是数组，则不做任何处理
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
 var resultData = update(initialData, '$deepmap', function(item){return item * 2 }）
@@ -80,7 +80,7 @@ var resultData = update(initialData, '$deepmap', function(item){return item * 2 
 ```
 
 ### $exchange
-**交换数组的元素**
+交换数组的元素
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
 var resultData = update(initialData, '$exchange', [2, 4]）
@@ -88,7 +88,7 @@ var resultData = update(initialData, '$exchange', [2, 4]）
 ```
 
 ### $move
-**将数组给定位置的元素移动到给定位置**
+将数组给定位置的元素移动到给定位置
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
 var resultData = update(initialData, '$move', [3, 0]）
@@ -96,7 +96,7 @@ var resultData = update(initialData, '$move', [3, 0]）
 ```
 
 ### $objmap
-**对给出的目标对象的属性应用对应的回调方法**
+对给出的目标对象的属性应用对应的回调方法
 ```javascript
 var initialData = {a: 1, b: 2}
 var resultData = update(initialData, '$objmap', {a: function(item){return item * 2 }}）
@@ -104,7 +104,7 @@ var resultData = update(initialData, '$objmap', {a: function(item){return item *
 ```
 
 ### $deepmerge
-**对象深层次合并**
+对象深层次合并
 ```javascript
 var initialData = {a: 1, b: 2, c: {d: 5, e: [4, 3]}}
 var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}}）
@@ -112,7 +112,7 @@ var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}}�
 ```
 
 ### $puremap
-**数组、对象通用的对每个元素应用回调函数，不做任何判断，浅层次**
+数组、对象通用的对每个元素应用回调函数，不做任何判断，浅层次
 ```javascript
 var initialData = {a: 1, b: 2, c: {d: 5, e: [4, 3]}}
 var resultData = update(initialData, '$puremap', function(item){return item * 2}）
