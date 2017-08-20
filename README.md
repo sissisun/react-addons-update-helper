@@ -75,7 +75,7 @@ var resultData = update(initialData, '$splce', [1, 1, 6, 7])
 ```javascript
 var initialData = [1, 2, 3, [4, 5], {a: 2}]
 var resultData = update(initialData, '$deepmap', function(item){return item * 2 })
-// 数组的第一个元素代表操作的位置，第二个代表需要删除的个数，再往后代表需要插入的元素
+// 数组的第一个元素代表操作的位置，第二个代表需要删除的个数，再往后代表需要插入的元素
 // resultData = [2, 4, 6, [8, 10], {a: 2}]
 ```
 
@@ -112,7 +112,7 @@ var resultData = update(initialData, '$objmap', {a: 7, c: {d: 'test', e: [6]}})
 ```
 
 ### $puremap
-数组、对象通用的对每个元素应用回调函数，不做任何判断，浅层次
+数组、对象通用的对每个元素应用回调函数，不做任何判断，浅层次
 ```javascript
 var initialData = {a: 1, b: 2, c: {d: 5, e: [4, 3]}}
 var resultData = update(initialData, '$puremap', function(item){return item * 2})
