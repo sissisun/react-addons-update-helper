@@ -1,4 +1,4 @@
-var testArray = [1, 2, 3]
+var testArray = [1, 2, 3, [4, 5]]
 var testObj = {
   a: 1,
   b: 2
@@ -65,6 +65,9 @@ function copyUpdate(initialArray) {
 }
 
 function pushUpdate(initialArray, data) {
+  if(!Array.isArray(data)) {
+    return console.log('期望的数据类型是数组')
+  }
   return deepCopy(initialArray).concat(data)
 }
 
@@ -76,7 +79,6 @@ function unshiftUpdate(initialArray, data) {
   for(var i = data.length - 1; i >= 0; i--) {
     copyArray.unshift(data[i])
   }
-  console.log(copyArray)
   return copyArray
 }
 
@@ -110,7 +112,7 @@ function deepmapUpdate(initialArray, fn) {
     if(Array.isArray(copyArray[i])){
       copyArray[i] = deepmapUpdate(copyArray[i], fn)
     } else {
-      copyArray[i] = fn(copyArray[i])
+      copyArray[i] = copyArray[i] = typeof(copyArray[i]) === 'object' ? copyArray[i] : fn(copyArray[i])
     }
   }
 
@@ -225,7 +227,8 @@ function deepCopy(source, target) {
   return target
 }
 
-var result = update(testArray, '$puremap', function(a) {
-  return a * 2;
-})
+// var result = update(testArray, '$puremap', function(a) {
+//   return a * 2;
+// })
+var result = update(testArray, '$splice', [1, 1, 6, 7])
 console.log(result)
