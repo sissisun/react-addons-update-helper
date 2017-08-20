@@ -57,7 +57,7 @@ var resultData = update(initialData, '$replace', [6, [7, 8]])
 类似数组的splice，区别在于传参方式
 ```javascript
 var initialData = [1, 2, 3, [4, 5]]
-var resultData = update(initialData, '$splce', [1, 1, 6, 7])
+var resultData = update(initialData, '$splice', [1, 1, 6, 7])
 // 数组的第一个元素代表操作的位置，第二个代表需要删除的个数，再往后代表需要插入的元素
 // resultData = [1, 6, 7, 3, [4, 5]]
 ```
