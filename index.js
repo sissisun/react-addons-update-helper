@@ -213,7 +213,7 @@
   }
 
   function deepCopy(source, target) {
-    let isObject = (source && typeof source === 'object')
+    var isObject = (source && typeof source === 'object')
     if (!isObject) { console.warn('source 不是对象类型'); return source}
     target = target || Array.isArray(source) ? [] : {}
 
